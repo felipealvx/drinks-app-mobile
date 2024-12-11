@@ -1,9 +1,10 @@
-import { View, Text } from "react-native"
+import { View, Text, Button } from "react-native"
 
-export const Home = () => {
+export const Home = ({ navigation }) => {
     return(
-        <View>
+        <View style={{ backgroundColor: "red" }}>
             <Text>Minha Home</Text>
+            <Button title="Clique Aqui" onPress={() => navigation.navigate("Details")} />
         </View>
     )
 }

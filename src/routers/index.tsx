@@ -15,7 +15,7 @@ export const Routes = () => {
             name="Home" 
             component={Home} 
             options={{ 
-                headerShown: false,
+                headerShown: true,
             }}/>
             <AppStack.Screen 
             name="Details" 

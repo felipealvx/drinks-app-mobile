@@ -3,7 +3,9 @@ import { Home, Details } from "../screens";
 
 export type AppStackParamList = {
     Home: undefined;
-    Details: undefined;
+    Details: {
+        drinkId: string;
+    };
 };
 
 const AppStack = createStackNavigator();

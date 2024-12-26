@@ -1,6 +1,5 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import { Home } from "../screens/Home";
-import { Details } from "../screens/Details";
+import { Home, Details } from "../screens";
 
 export type AppStackParamList = {
     Home: undefined;
@@ -12,8 +11,15 @@ const AppStack = createStackNavigator();
 export const Routes = () => {
     return (
         <AppStack.Navigator initialRouteName="Home">
-            <AppStack.Screen name="Home" component={Home} />
-            <AppStack.Screen name="Details" component={Details} />
+            <AppStack.Screen 
+            name="Home" 
+            component={Home} 
+            options={{ 
+                headerShown: false,
+            }}/>
+            <AppStack.Screen 
+            name="Details" 
+            component={Details} />
         </AppStack.Navigator>
     );
 };

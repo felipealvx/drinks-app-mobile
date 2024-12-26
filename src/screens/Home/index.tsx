@@ -1,10 +1,22 @@
-import { View, Text, Button } from "react-native"
+import { NavigationProp } from "@react-navigation/native";
+import { View, Text, Button, SafeAreaView, TextInput, Pressable } from "react-native"
+import { AppStackParamList } from "../../routers";
+import { Ionicons } from "@expo/vector-icons";
 
-export const Home = ({ navigation }) => {
-    return(
-        <View style={{ backgroundColor: "red" }}>
-            <Text>Minha Home</Text>
-            <Button title="Clique Aqui" onPress={() => navigation.navigate("Details")} />
-        </View>
-    )
+
+type HomeProps = {
+    navigation: NavigationProp<AppStackParamList>;
 }
+
+export const Home = ({ navigation }: HomeProps) => {
+    return(
+        <SafeAreaView>
+            <View>
+                <TextInput />
+                <Pressable>
+                    <Ionicons name="search" size={24}/>
+                </Pressable>
+            </View>
+        </SafeAreaView>
+    );
+};

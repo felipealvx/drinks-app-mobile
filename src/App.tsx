@@ -1,6 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import { Home } from './screens/Home';
 import { NavigationContainer } from '@react-navigation/native';
 import { Routes } from './routers';
 

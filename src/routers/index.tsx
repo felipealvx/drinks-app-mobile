@@ -12,12 +12,12 @@ const AppStack = createStackNavigator();
 
 export const Routes = () => {
     return (
-        <AppStack.Navigator initialRouteName="Home">
+        <AppStack.Navigator initialRouteName={"Drinks Native"}>
             <AppStack.Screen 
-            name="Home" 
+            name="Drinks Native" 
             component={Home} 
             options={{ 
-                headerShown: true,
+                headerShown: false,
             }}/>
             <AppStack.Screen 
             name="Details" 

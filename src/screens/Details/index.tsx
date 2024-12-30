@@ -48,11 +48,13 @@ export const Details: React.FC<DetailsProp> = ( {route} ) => {
             <Text style={styles.served}>Served in: {drink?.strGlass}</Text>
 
             <Text style={styles.sectionTitle}>Ingredients:</Text>
-            {ingredients.map(({ingredient, measure}, index) => (
+            
+            {ingredients.map(({ ingredient, measure }, index) => (
                 <Text key={index}>
                     {ingredient} - {measure}
                 </Text>
             ))};
+
 
             <Text style={styles.sectionTitle}>Instructions:</Text>
             <Text>{drink?.strInstructions}</Text>

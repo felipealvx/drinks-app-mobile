@@ -6,6 +6,7 @@ import { styles } from "./styles";
 import { useState } from "react";
 import { useDrinks } from "../../hooks/useDrinks";
 import DrinkImage from "../../../assets/drink.png";
+import * as Animatable from 'react-native-animatable';
 
 type HomeProps = {
     navigation: NavigationProp<AppStackParamList>;
@@ -85,9 +86,13 @@ export const Home = ({ navigation }: HomeProps) => {
                 )}/>
                 {searchText.length === 0 && (
                     <View style={styles.viewImage}>
-                    <Image
-                     style={styles.drinkImage}
-                     source={require=(DrinkImage)}/> 
+                    <Animatable.Image
+                        source={require=(DrinkImage)} 
+                        easing={"ease-out-back"}
+                        animation="zoomInUp"
+                        duration={3000} 
+                        style={styles.drinkImage}
+                    />
                  </View>
                 )}
         </SafeAreaView>

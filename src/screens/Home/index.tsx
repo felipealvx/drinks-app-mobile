@@ -1,7 +1,7 @@
 import { NavigationProp } from "@react-navigation/native";
 import { View, Text, SafeAreaView, TextInput, Pressable, FlatList, TouchableOpacity, Image } from "react-native"
 import { AppStackParamList } from "../../routers";
-import { Entypo, FontAwesome, Ionicons } from "@expo/vector-icons";
+import { AntDesign, Entypo, FontAwesome, Ionicons } from "@expo/vector-icons";
 import { styles } from "./styles";
 import { useState } from "react";
 import { useDrinks } from "../../hooks/useDrinks";
@@ -69,18 +69,21 @@ export const Home = ({ navigation }: HomeProps) => {
                             style={styles.drinkThumb} />
 
                         <View style={ styles.textContent}>
-                            <Text style={ styles.drinkTitle }>{item.strDrink}</Text>
-                            <View style={styles.textElements}>
-                                <FontAwesome name="question-circle" size={16} color="gray" />
-                                <Text style={{color: "gray"}}>{item.strCategory}</Text>
+                            <View>
+                                <Text style={ styles.drinkTitle }>{item.strDrink}</Text>
+                                <View style={styles.textElements}>
+                                    <FontAwesome name="question-circle" size={16} color="gray" />
+                                    <Text style={{color: "gray"}}>{item.strCategory}</Text>
+                                </View>
+                                <View style={ styles.textElements }>
+                                    <Entypo name="drink" color={"gray"}/>
+                                    <Text style={{color: "gray"}}>{item.strAlcoholic === "Alcoholic"
+                                    ? "Alcoholic" 
+                                    : "Non-Alcoholic"}
+                                    </Text>
+                                </View>
                             </View>
-                            <View style={ styles.textElements }>
-                                <Entypo name="drink" color={"gray"}/>
-                                <Text style={{color: "gray"}}>{item.strAlcoholic === "Alcoholic"
-                                ? "Alcoholic" 
-                                : "Non-Alcoholic"}
-                                </Text>
-                            </View>
+                            <Entypo name="chevron-right" size={30} color="gray" style={ styles.icon }/>
                         </View> 
                     </TouchableOpacity>
                 )}/>

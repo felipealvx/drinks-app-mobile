@@ -61,11 +61,15 @@ export const styles = StyleSheet.create ({
         borderRadius: 15,
     },
     textContent: {
-        width: '100%',
-        height: "100%",
-        justifyContent: 'space-between',
+        flexDirection: 'row',
         padding: 10,
         gap: 5,
+        position: 'relative',
+    },
+    icon: {
+        position: 'absolute',
+        left: 175,
+        top: 27,
     },
     drinkTitle: {
         fontSize: 20,

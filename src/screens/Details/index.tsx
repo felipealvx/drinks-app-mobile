@@ -1,8 +1,9 @@
 import { RouteProp } from "@react-navigation/native"
-import { View, Text, ActivityIndicator, ScrollView, Image, TouchableOpacity } from "react-native"
+import { View, Text, ActivityIndicator, ScrollView, Image, TouchableOpacity, Modal, Alert } from "react-native"
 import { useDrinkById } from "../../hooks/useDrinksById";
 import { styles } from "./styles";
-import { Entypo, FontAwesome5, MaterialIcons } from "@expo/vector-icons";
+import { Entypo, FontAwesome5, FontAwesome6, Ionicons, MaterialIcons } from "@expo/vector-icons";
+import { useState } from "react";
 
 type DetailsScreenRouteProps = RouteProp<{
     Details: { drinkId: string; }},
@@ -15,6 +16,7 @@ interface DetailsProp {
 
 export const Details: React.FC<DetailsProp> = ( {route} ) => {
     const {drink, error, loading} = useDrinkById(route.params.drinkId);
+    const [modalVisible, setModalVisible] = useState(false);
     if (loading) {
         return (
             <View style={ styles.indicator }>
@@ -36,6 +38,7 @@ export const Details: React.FC<DetailsProp> = ( {route} ) => {
         measure: drink?.[`strMeasure${i+1}`] || "to taste", 
     })).filter((item) => item.ingredient);
     
+
 
     return(
         <ScrollView>
@@ -63,20 +66,42 @@ export const Details: React.FC<DetailsProp> = ( {route} ) => {
 
                 <Text style={styles.sectionTitle}>Ingredients:</Text>
 
-                {ingredients.map(({ ingredient, measure }, index) => (
+                {ingredients.map((item, index) => (
                     <Text key={index}>
-                        {ingredient} - {measure}
+                        {item.ingredient} - {item.measure}
                     </Text>
-                ))};
-
-                <TouchableOpacity style={styles.buttonViewInfos}
+                ))}
                 
+                <TouchableOpacity style={styles.buttonViewInfos}
+                onPress={() => setModalVisible(true)}
                 >
                     <Text style={styles.textButton}>View Instructions</Text>
                     <FontAwesome5 name="info-circle" size={24} color="white" />
                 </TouchableOpacity>
-                {/* <Text style={styles.sectionTitle}>Instructions:</Text>
-                <Text>{drink?.strInstructions}</Text> */}
+                <Modal
+                    transparent={true}
+                    animationType="slide"
+                    visible={modalVisible}
+                    onRequestClose={() => {
+                      setModalVisible(!modalVisible);
+                    }}>
+                        <View style={{flex: 1, alignItems: 'flex-end', justifyContent: 'flex-end'}}>
+                            <View style={ styles.modal }>
+                                <View>
+                                    <Text style={styles.sectionTitle}>
+                                        Instructions:
+                                        <FontAwesome6 name="hands" size={24} color="black" />
+                                    </Text>
+                                    <Text>{drink?.strInstructions}</Text>
+                                </View>
+                                <TouchableOpacity style={styles.closModalButton}
+                                onPress={() => setModalVisible(false)}>
+                                    <Text style={styles.textButtonCloseModal}>Close</Text>
+                                    <Ionicons name="close-outline" size={30} color={'red'}/>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                </Modal>
             </View>
             
         </ScrollView>

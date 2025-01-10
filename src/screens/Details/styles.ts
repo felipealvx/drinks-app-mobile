@@ -45,7 +45,7 @@ export const styles = StyleSheet.create ({
         marginBottom: 16,
     },
     sectionTitle:{
-        fontSize: 16,
+        fontSize: 30,
         fontWeight: "bold",
         marginVertical: 8,
     },
@@ -68,4 +68,26 @@ export const styles = StyleSheet.create ({
         color: 'white',
         fontWeight: 700,
     },
+    modal: {
+        backgroundColor: '#F1F1F1',
+        padding: 20,
+        height: '50%',
+        justifyContent: 'space-between',
+        elevation: 50,
+        borderTopWidth: 1,
+        borderColor: '#e1e1e1',
+        borderRadius: 20,
+        width: '100%',
+    },
+    textButtonCloseModal: {
+        color: 'red',
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    closModalButton: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 5, 
+        justifyContent: 'center'
+    }
 });

@@ -68,11 +68,11 @@ export const styles = StyleSheet.create ({
     },
     icon: {
         position: 'absolute',
-        left: 175,
+        left: 200,
         top: 27,
     },
     drinkTitle: {
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: 700,
         letterSpacing: 0,
     },

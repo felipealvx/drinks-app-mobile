@@ -83,16 +83,16 @@ export const Home = ({ navigation }: HomeProps) => {
                                     </Text>
                                 </View>
                             </View>
-                            <Entypo name="chevron-right" size={30} color="gray" style={ styles.icon }/>
+                            <Entypo name="chevron-right" size={30} color="#e1e1e1" style={ styles.icon }/>
                         </View> 
                     </TouchableOpacity>
                 )}/>
                 {searchText.length === 0 && (
                     <View style={styles.viewImage}>
                     <Animatable.Image
-                        source={require=(DrinkImage)} 
-                        easing={"ease-out-back"}
-                        animation="zoomInUp"
+                        source={require=(DrinkImage)} a
+                        animation="pulse"
+                        iterationCount="infinite"
                         duration={3000} 
                         style={styles.drinkImage}
                     />

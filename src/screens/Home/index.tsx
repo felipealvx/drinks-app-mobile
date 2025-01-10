@@ -90,7 +90,7 @@ export const Home = ({ navigation }: HomeProps) => {
                 {searchText.length === 0 && (
                     <View style={styles.viewImage}>
                     <Animatable.Image
-                        source={require=(DrinkImage)} a
+                        source={require=(DrinkImage)}
                         animation="pulse"
                         iterationCount="infinite"
                         duration={3000} 
